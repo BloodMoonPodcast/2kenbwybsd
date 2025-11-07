@@ -1,0 +1,181 @@
+/* Styles for the page and windows */
+:root{
+  --window-bg: #ffffff;
+  --titlebar-bg: linear-gradient(180deg, #f3f4f6, #e9ebee);
+  --accent: #007aff;
+}
+html,body{
+  height:100%;
+  margin:0;
+  font-family: "San Francisco", "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(120deg, #f5f5f7 0%, #d4d8db 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.launchpad{
+  display:grid;
+  grid-template-columns:repeat(5,100px);
+  grid-gap:36px;
+  margin:32px auto 120px;
+  padding:40px 24px;
+  max-width:680px;
+  justify-items:center;
+}
+.icon{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background:#fff;
+  box-shadow:0 4px 16px rgba(0,0,0,0.10);
+  border-radius:18px;
+  width:100px;
+  height:100px;
+  transition:transform .15s;
+  cursor:pointer;
+}
+.icon:hover{ transform: translateY(-8px) scale(1.06); box-shadow:0 10px 30px rgba(0,0,0,0.12);}
+.icon-emoji{ font-size:2.3em; margin-top:14px;}
+.icon-label{ margin-top:10px; font-size:0.95rem; color:#333; text-shadow:0 1px 0 #fff;}
+
+.dock{
+  position:fixed;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:18px;
+  background: rgba(255,255,255,0.66);
+  padding:12px 20px;
+  border-radius:28px;
+  box-shadow:0 6px 24px rgba(0,0,0,0.18);
+  z-index:100;
+}
+.dock-icon{
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  background: #fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.6em;
+  transition:box-shadow .15s, transform .15s;
+  cursor:pointer;
+}
+.dock-icon:hover{ transform:scale(1.08); box-shadow: 0 8px 26px rgba(0,0,0,0.14); }
+
+/* Window styles */
+#windows-root{ position:fixed; inset:0; pointer-events:none; }
+
+.app-window{
+  position:absolute;
+  width:640px;
+  height:380px;
+  background:var(--window-bg);
+  border-radius:8px;
+  box-shadow: 0 18px 48px rgba(0,0,0,0.25);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  pointer-events:auto;
+  transform-origin:top left;
+}
+.titlebar{
+  height:40px;
+  background:var(--titlebar-bg);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 10px;
+  cursor:grab;
+  user-select:none;
+}
+.title{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  font-weight:600;
+  color:#111;
+}
+.title .dot{
+  width:12px;height:12px;border-radius:50%;
+  margin-right:6px;
+}
+.controls{
+  display:flex;
+  gap:6px;
+  align-items:center;
+}
+.ctrl-btn{
+  width:12px;height:12px;border-radius:50%;
+  background:#bbb;
+  display:inline-block;
+  cursor:pointer;
+  border:1px solid rgba(0,0,0,0.06);
+}
+.ctrl-btn.min{ background:#f6be57;}
+.ctrl-btn.max{ background:#6de06d;}
+.ctrl-btn.close{ background:#ff5b5b;}
+.content{
+  flex:1;
+  padding:12px;
+  background:linear-gradient(180deg,#fff,#f6f7f8);
+  overflow:auto;
+  font-family: monospace;
+  font-size:13px;
+  color:#0b0b0b;
+}
+
+/* minimized windows appear as a small bar */
+.app-window.minimized{
+  width:220px;
+  height:40px;
+  overflow:visible;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+}
+.app-window.fullscreen{
+  width:100vw !important;
+  height:100vh !important;
+  left:0 !important;
+  top:0 !important;
+  border-radius:0 !important;
+}
+
+/* terminal styles */
+.terminal{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  gap:8px;
+}
+.terminal-output{
+  flex:1;
+  background:#02060a;
+  color:#d6d8da;
+  padding:10px;
+  overflow:auto;
+  border-radius:6px;
+  white-space:pre-wrap;
+  font-family: "SFMono-Regular", Menlo, Monaco, monospace;
+  font-size:13px;
+}
+.terminal-input-wrapper{ display:flex; gap:8px; align-items:center; }
+.terminal-input{
+  flex:1;
+  padding:8px 10px;
+  border-radius:6px;
+  border:1px solid #ddd;
+  background:#fff;
+  font-family: monospace;
+  font-size:13px;
+  outline:none;
+}
+.terminal-send{
+  padding:8px 12px;
+  background:var(--accent);
+  color:#fff;
+  border-radius:6px;
+  border:none;
+  cursor:pointer;
+}
+.focused{ box-shadow: 0 26px 60px rgba(0,0,0,0.32); transform:scale(1.00); z-index:999; }
