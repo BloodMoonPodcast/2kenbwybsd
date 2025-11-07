@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Apple-like GUI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="launchpad" id="launchpad">
+    <div class="icon" data-app="Files">
+      <div class="icon-emoji">📁</div>
+      <div class="icon-label">Files</div>
+    </div>
+    <div class="icon" data-app="Messages">
+      <div class="icon-emoji">💬</div>
+      <div class="icon-label">Messages</div>
+    </div>
+    <div class="icon" data-app="Mail">
+      <div class="icon-emoji">📧</div>
+      <div class="icon-label">Mail</div>
+    </div>
+    <div class="icon" data-app="Safari">
+      <div class="icon-emoji">🌎</div>
+      <div class="icon-label">Safari</div>
+    </div>
+    <div class="icon" data-app="Notes">
+      <div class="icon-emoji">📝</div>
+      <div class="icon-label">Notes</div>
+    </div>
+    <div class="icon" data-app="Photos">
+      <div class="icon-emoji">📷</div>
+      <div class="icon-label">Photos</div>
+    </div>
+    <div class="icon" data-app="Music">
+      <div class="icon-emoji">🎶</div>
+      <div class="icon-label">Music</div>
+    </div>
+    <div class="icon" data-app="Calendar">
+      <div class="icon-emoji">🗓️</div>
+      <div class="icon-label">Calendar</div>
+    </div>
+    <div class="icon" data-app="Spotlight">
+      <div class="icon-emoji">🔎</div>
+      <div class="icon-label">Spotlight</div>
+    </div>
+    <div class="icon" data-app="Settings">
+      <div class="icon-emoji">⚙️</div>
+      <div class="icon-label">Settings</div>
+    </div>
+    <!-- Command Prompt icon -->
+    <div class="icon" id="cmd-icon" data-app="Command Prompt">
+      <div class="icon-emoji">💻</div>
+      <div class="icon-label">Terminal</div>
+    </div>
+  </div>
+
+  <div class="dock" id="dock">
+    <div class="dock-icon" data-app="Finder" title="Finder">📁</div>
+    <div class="dock-icon" data-app="Safari" title="Safari">🌎</div>
+    <div class="dock-icon" data-app="Photos" title="Photos">📷</div>
+    <div class="dock-icon" data-app="Music" title="Music">🎶</div>
+    <div class="dock-icon" data-app="Trash" title="Trash">🗑️</div>
+    <div class="dock-icon" id="dock-cmd" data-app="Command Prompt" title="Terminal">💻</div>
+  </div>
+
+  <div id="windows-root"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
